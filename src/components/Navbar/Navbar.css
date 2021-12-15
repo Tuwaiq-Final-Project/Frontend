@@ -28,6 +28,7 @@ p{
     font-weight: 400;
     text-decoration: none;
     padding: 10px;
+    cursor: pointer;
 }
 .Navigation ul li a:hover{
     background-color: #0bcc8b;

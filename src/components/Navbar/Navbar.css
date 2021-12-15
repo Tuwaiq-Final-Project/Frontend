@@ -1,0 +1,96 @@
+.Flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+    background-color:#555B6E;
+    width: 100%;
+    height: 100px;
+}
+p{
+    background-color: aliceblue;
+
+}
+.LogoIcon , .LoginAndSignup{
+    margin: 10px;
+}
+.Navigation ul{
+    list-style-type: none;
+}
+.Navigation ul li {
+    display: inline;
+    margin: 10px;
+}
+.Navigation ul li a{
+    font-family: 'Courier New', monospace;
+    font-size: 25px;
+    color:#FFFFFF;
+    font-weight: 400;
+    text-decoration: none;
+    padding: 10px;
+}
+.Navigation ul li a:hover{
+    background-color: #0bcc8b;
+    border-radius: 20ch;
+    border-color: aliceblue;
+}
+.LoginButton , .SignupButton{
+    background-color: #0bcc8b;
+    border: none;
+    color: white;
+    padding-top: 5px;
+    padding-bottom:5px ;
+    font-family: 'Courier New', monospace;
+    font-weight: 400;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 20ch;
+}
+.LoginButton:hover , .SignupButton:hover{
+    background-color: white; 
+    color: #0bcc8b;
+    font-weight: 600 !important;
+}
+/* ---------- Responsive ---------- */
+/* ---------- Responsive ---------- */
+/* ---------- Responsive ---------- */
+@media (max-width:750px)
+{
+    .Navigation ul li {
+        margin: 4px;
+    }
+    .Navigation ul li a{
+        font-size: 15px;
+        font-weight: 300;
+        padding: 8px;
+    }
+    .LoginButton , .SignupButton{
+        padding-top: 3px;
+        padding-bottom:3px ;
+        font-weight: 300;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 15px;
+        margin: 4px 2px;
+    }
+}
+@media (max-width:490px)
+{
+    .Navigation ul li {
+        margin: 2px;
+    }
+    .Navigation ul li a{
+        font-size: 10px !important;
+        font-weight: 200 !important;
+        padding: 4px !important;
+    }
+    .Navigation ul{
+        padding: 0;
+    }
+}

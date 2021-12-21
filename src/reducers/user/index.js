@@ -1,7 +1,7 @@
 const user = JSON.parse(localStorage.getItem("user"));
 const initialState = {
   user: user ? user : {},
-  isLogedIn:false,
+  isLogedIn: user ? true : false
 };
 
 const userReducer = (state = initialState, { type, payload }) => {

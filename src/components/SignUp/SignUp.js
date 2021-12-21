@@ -106,8 +106,7 @@ function SignUp(){
             .then(response=>{
                 toastifyFile.successNotify(response.data.success)
                 setTimeout(() => {
-                    // navigate(`/Sign-in`)
-                    navigate('/Sign-in', {state:{email:email}});
+                    navigate('/sign-in', {state:{email:email}});
                 }, 2000);
             })
             .catch(err=>{

@@ -42,14 +42,21 @@ function SignIn(){
         .then((res) => {
             const token = res.data.access_token
             let decodedHeader = jwt_decode(token);
-            console.log(decodedHeader);
+            // console.log(decodedHeader);
             // add to redux & localstorage
-            dispatch(addUser(decodedHeader.userInfo));
+            dispatch(addUser({"id":decodedHeader.userInfo.id ,"name":decodedHeader.userInfo.name,"role":decodedHeader.roles[0]}));
             dispatch(addToken(token));
 
             toastifyFile.successNotify("Seccessfuly Logedin")
                 setTimeout(() => {
-                    navigate("/");
+
+                    if(decodedHeader.roles[0] =="ADMIN")
+                    {
+                        navigate("/dashboard");
+                    }
+                    else{
+                        navigate("/");
+                    }
                 }, 2000);
         })
         .catch((err) => {

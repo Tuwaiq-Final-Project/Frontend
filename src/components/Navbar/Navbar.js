@@ -8,7 +8,6 @@ import "./Navbar.css"
 export default function Navbar(){
 
     const state = useSelector((state) => {
-        console.log(state);
         return {
         user: state.userReducer.user,
         isLogedIn: state.userReducer.isLogedIn
@@ -27,14 +26,36 @@ export default function Navbar(){
         </div>
         <div className="Navigation">
             <ul>
+                {/* Welecome message */}
                 { state.isLogedIn  && <li>Welecome {state.user.name}</li>}
-                <li><a onClick={()=>{navigate("/")}} >Home</a></li>
-                <li><a >Contact Us</a></li>
+                {/* For ADMIN */}
+                {state.user.role =="ADMIN" ? 
+                <>
+                <li><a onClick={()=>{navigate("/dashboard")}} >Dashboard</a></li>
+                <li><a onClick={()=>{navigate("/users")}} >Users</a></li>
+                <li><a onClick={()=>{navigate("/services")}} >Services</a></li>
+                <li><a onClick={()=>{navigate("/reservations")}} >Reservations</a></li>
+                <li><a onClick={()=>{navigate("/messages")}} >Messages</a></li>
+                </>
+                : ""}
+                {/* For USER */}
+                { state.user.role !="ADMIN" ||  state.user.role == undefined ? 
+                    <>
+                        <li><a onClick={()=>{navigate("/")}} >Home</a></li> 
+                        <li><a >Contact Us</a></li>
+                        { state.user.role =="USER" ? 
+                            <>
+                            <li><a onClick={()=>{navigate("/available-Reservations")}} >Available Reservations</a></li> 
+                            <li><a onClick={()=>{navigate("/my-reservations")}} >My Reservations</a></li> 
+                            </>
+                        : ""}
+                    </>
+                :""}
             </ul>
         </div>
         <div className="LoginAndSignup">
-            {!state.isLogedIn && <button onClick={()=>{navigate("/Sign-in")}} className="LoginButton">Sing In</button> }
-            {!state.isLogedIn && <button onClick={()=>{navigate("/Sign-up")}} className="SignupButton">Sign Up</button> }
+            {!state.isLogedIn && <button onClick={()=>{navigate("/sign-in")}} className="LoginButton">Sing In</button> }
+            {!state.isLogedIn && <button onClick={()=>{navigate("/sign-up")}} className="SignupButton">Sign Up</button> }
             {state.isLogedIn && <button onClick={()=>{dispatch(removeUser())}} className="LoginButton">Log Out</button> }
         </div>
     </div>

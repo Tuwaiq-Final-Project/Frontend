@@ -1,0 +1,11 @@
+#formBasicPassword::placeholder {color: red;} 
+#formBasicConfirmPassword::placeholder {color: red;} 
+#formBasicName::placeholder {color: red;} 
+#formBasicEmail::placeholder {color: red;} 
+#formBasicPhone::placeholder {color: red;} 
+
+.SignUpForm{
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}

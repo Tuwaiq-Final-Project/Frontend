@@ -110,22 +110,28 @@ function SignUp(){
                 }, 2000);
             })
             .catch(err=>{
-                console.log(err.response.data);
-                if(err.response.data.email !== null)
+                if(err.response === undefined)
                 {
-                    toastifyFile.errorNotify(err.response.data.email)
+                    console.log(err.request);
+                    toastifyFile.errorNotify("GGGG Error")
+                }else{
+                    if(err.response.data.email !== null)
+                    {
+                        toastifyFile.errorNotify(err.response.data.email)
+                    }
+                    if(err.response.data.phone !== null)
+                    {
+                        toastifyFile.errorNotify(err.response.data.phone)
+                    }
+                    if(err.response.data.error !== null)
+                    {
+                        toastifyFile.errorNotify(err.response.data.error)
+                    }
+                    else{
+                        toastifyFile.errorNotify("Not handling Error")
+                    }
                 }
-                if(err.response.data.phone !== null)
-                {
-                    toastifyFile.errorNotify(err.response.data.phone)
-                }
-                if(err.response.data.error !== null)
-                {
-                    toastifyFile.errorNotify(err.response.data.error)
-                }
-                else{
-                    toastifyFile.errorNotify("Not handling Error")
-                }
+                
             })
     }
 

@@ -1,10 +1,10 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function successNotify(message){
+function successNotify(message,autoCloseMillisecond = 2000){
     toast.success(message, {
         position: "top-center",
-        autoClose: 2000,
+        autoClose: autoCloseMillisecond,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

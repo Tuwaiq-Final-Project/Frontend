@@ -1,10 +1,9 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route,useLocation} from "react-router-dom"
 
 // All components
-import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
@@ -15,12 +14,17 @@ import Services from './components/Admin/Services/Services';
 import Reservations from './components/Admin/Reservations/Reservations';
 import AvailableReservations from './components/User/AvailableReservations/AvailableReservations';
 import MyReservations from './components/User/MyReservations/MyReservations';
+import Navbar from './components/Navbar/Navbar';
 
 
 function App() {
+
+  const location = useLocation();
+
   return (
     <>
-      <Navbar></Navbar>
+    {/* امرر البروبس للناف بار بدال ما يكون 2 ناف  */}
+    { location.pathname !="/" && <Navbar/>}
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/sign-in" element={<SignIn/>}/>

@@ -1,7 +1,10 @@
 const user = JSON.parse(localStorage.getItem("user"));
+const token = JSON.parse(localStorage.getItem("token"));
+
 const initialState = {
   user: user ? user : {},
-  isLogedIn: user ? true : false
+  isLogedIn: user ? true : false,
+  token: token ? token  : "",
 };
 
 const userReducer = (state = initialState, { type, payload }) => {

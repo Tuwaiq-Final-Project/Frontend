@@ -81,10 +81,9 @@ export default function Navbar({isNotHomepage}){
         <div className="LoginAndSignup">
             {!state.isLogedIn && <button onClick={()=>{navigate("/sign-in")}} className="LoginButton">Log in</button> }
             {!state.isLogedIn && <button onClick={()=>{navigate("/sign-up")}} className="SignupButton">Sign Up</button> }
-            {/* {state.isLogedIn && <button onClick={()=>{dispatch(removeUser())}} className="LoginButton">{state.user.name}</button> } */}
             {state.isLogedIn && 
             <Dropdown>
-                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                <Dropdown.Toggle variant="success" id="dropdown-basic" style={{ backgroundColor:'transparent', border:"none", }}>
                 {state.user.name}
                 </Dropdown.Toggle>
             

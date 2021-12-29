@@ -3,7 +3,7 @@ import axios from "axios";
 import { useDispatch } from 'react-redux'
 import jwt_decode from "jwt-decode";
 import {addUser, addToken} from "../../reducers/user/actions"
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,8 +14,6 @@ import "./SignIn.css"
 
 
 function SignIn(){
-
-    const {state} = useLocation();
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -68,20 +66,10 @@ function SignIn(){
                 }
         });
     };
-    
-
-    useEffect(() => {
-        
-        if(state != null)
-        {
-            setEmail(state.email)
-        }
-
-    },[]);
 
     return(
         <>
-        <h1>SignIn</h1>
+        <div className="SignInPage">
         <div className="SignInForm">
         <ToastContainer  position="top-center"
             autoClose={5000}
@@ -92,11 +80,12 @@ function SignIn(){
             pauseOnFocusLoss
             draggable
             pauseOnHover
-        />
+            />
+        <h1>Login</h1>
         <Form>
             <Form.Group className="mb-3" controlId="SingInFormBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control onChange={handleChangeEmail} type="email" placeholder="Enter email" value={email}  />
+                <Form.Control onChange={handleChangeEmail} type="email" placeholder="Enter email" />
                 <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
                 </Form.Text>
@@ -109,6 +98,7 @@ function SignIn(){
 
             <Button onClick={()=>(signInRequest())} variant="primary">Submit</Button>
         </Form>
+        </div>
         </div>
         </>
     )

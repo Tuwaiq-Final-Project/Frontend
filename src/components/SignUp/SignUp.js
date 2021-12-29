@@ -171,7 +171,6 @@ function SignUp(){
 
     return(
         <>
-        <h1>SignUp</h1>
         <ToastContainer  position="top-center"
             autoClose={5000}
             hideProgressBar={false}
@@ -183,6 +182,7 @@ function SignUp(){
             pauseOnHover
         />
         <div className="SignUpForm">
+        <h1>SignUp</h1>
         <Form>
             <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Name</Form.Label>

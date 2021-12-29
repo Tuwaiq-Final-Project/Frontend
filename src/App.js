@@ -15,6 +15,7 @@ import Reservations from './components/Admin/Reservations/Reservations';
 import AvailableReservations from './components/User/AvailableReservations/AvailableReservations';
 import MyReservations from './components/User/MyReservations/MyReservations';
 import Navbar from './components/Navbar/Navbar';
+import CreateServices from './components/Admin/Services/CreateServices';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/reservations" element={<Reservations/>}/>
         <Route path="/available-reservations" element={<AvailableReservations/>}/>
         <Route path="/my-reservations" element={<MyReservations/>}/>
+        <Route path="services/create" element={<CreateServices/>}/>
       </Routes>
     </>
   );

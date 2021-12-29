@@ -1,0 +1,33 @@
+.tableInfo{
+    margin: 5%;
+}
+
+table.table-bordered > thead{
+    text-align: center;
+}
+
+table.table-bordered > thead > tr > th{
+    border:2px solid black;
+}
+
+table.table-bordered > tbody > tr > td{
+    border:2px solid black;
+}
+
+.AddServiceButton{
+    background-color: rgb(64, 51, 44,0.95);
+    border: none;
+    color: white;
+    margin: 10px;
+}  
+.AddServiceButton:hover{
+    background-color: #A68C7C;
+}
+
+
+.H1AndButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}

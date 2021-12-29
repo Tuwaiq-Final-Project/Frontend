@@ -55,13 +55,17 @@ function SignIn(){
                         navigate("/dashboard");
                     }
                     else{
-                        navigate("/");
+                        navigate("/available-reservations");
                     }
                 }, 2000);
         })
         .catch((err) => {
-            toastifyFile.errorNotify("Something Went Wrong")
-            console.log(err);
+            if(err.response === undefined)
+                {
+                    toastifyFile.errorNotify("There is no response from server")
+            }else{
+                    toastifyFile.errorNotify("Something Went Wrong")
+                }
         });
     };
     

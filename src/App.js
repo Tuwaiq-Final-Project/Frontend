@@ -23,8 +23,7 @@ function App() {
 
   return (
     <>
-    {/* امرر البروبس للناف بار بدال ما يكون 2 ناف  */}
-    { location.pathname !="/" && <Navbar/>}
+    { location.pathname !="/" && <Navbar isNotHomepage={true}/>}
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/sign-in" element={<SignIn/>}/>
@@ -34,7 +33,7 @@ function App() {
         <Route path="/users" element={<Users/>}/>
         <Route path="/services" element={<Services/>}/>
         <Route path="/reservations" element={<Reservations/>}/>
-        <Route path="/available-Reservations" element={<AvailableReservations/>}/>
+        <Route path="/available-reservations" element={<AvailableReservations/>}/>
         <Route path="/my-reservations" element={<MyReservations/>}/>
       </Routes>
     </>

@@ -1,0 +1,26 @@
+.GridData{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap:50px;
+    text-align: center;
+    margin: 5%;
+    height: 500px;
+    width: 200px;
+}
+
+.Users{
+    background-color: bisque;
+}
+
+.services{
+    background-color: yellow;
+}
+
+.reservations{
+    background-color: blue;
+}
+
+.messages{
+    border: 9px;
+    background-color: violet;
+}

@@ -102,13 +102,13 @@ function Home(){
                 <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
             </defs>
             <g className="wave1">
-                <use xlinkHref="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"/>
+                <use xlinkHref="#wave-path" x="50" y="3" fill="rgba(187, 163, 147, .6)"/>
             </g>
             <g className="wave2">
-                <use xlinkHref="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"/>
+                <use xlinkHref="#wave-path" x="50" y="0" fill="rgba(187, 159, 142, .6)"/>
             </g>
             <g className="wave3">
-                <use xlinkHref="#wave-path" x="50" y="9" fill="antiquewhite"/>
+                <use xlinkHref="#wave-path" x="50" y="9" fill="#A68C7C"/>
             </g>
         </svg>
 

@@ -1,15 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+
+.scroll {
+    /* background-color:transparent; */
+    background-color: rgb(64, 51, 44,0.95) !important;
+    }
+    
 .Flex{
     display: flex;
+    position: sticky;
+    top: 0;
     flex-direction: row;
     justify-content: space-between;
     align-items:center;
-    background-color:#555B6E;
+    background-color: rgb(64, 51, 44,0);
     width: 100%;
     height: 100px;
-}
-p{
-    background-color: aliceblue;
-
 }
 .LogoIcon , .LoginAndSignup{
     margin: 10px;
@@ -22,27 +27,28 @@ p{
     margin: 10px;
 }
 .Navigation ul li a{
-    font-family: 'Courier New', monospace;
+    /* font-family: 'Courier New', monospace; */
+    font-family: 'Rajdhani', sans-serif;
     font-size: 25px;
-    color:#2fa861 !important;
-    font-weight: 400;
+    color:#000000 ;
+    /* font-weight: 200; */
     text-decoration: none;
     padding: 10px;
     cursor: pointer;
 }
 .Navigation ul li a:hover{
-    background-color: #0bcc8b;
+    background-color: #A68C7C;
     border-radius: 20ch;
     border-color: aliceblue;
 }
 .LoginButton , .SignupButton{
-    background-color: #0bcc8b;
+    background-color: #A68C7C;
     border: none;
     color: white;
     padding-top: 5px;
     padding-bottom:5px ;
     font-family: 'Courier New', monospace;
-    font-weight: 400;
+    font-weight: 600;
     padding-left: 10px;
     padding-right: 10px;
     text-align: center;
@@ -55,7 +61,7 @@ p{
 }
 .LoginButton:hover , .SignupButton:hover{
     background-color: white; 
-    color: #0bcc8b;
+    color: #40332C;
     font-weight: 600 !important;
 }
 /* ---------- Responsive ---------- */

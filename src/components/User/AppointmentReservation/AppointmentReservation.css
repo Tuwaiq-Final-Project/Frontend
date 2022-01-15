@@ -1,0 +1,40 @@
+.AppointmentReservationSelect{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    background-color: rgb(202, 223, 216);
+}
+
+.AppointmentReservationSelect > h5 {
+    text-align: center;
+}
+
+.SelectdayAndTime{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(202, 223, 216);
+
+}
+
+.Card{
+    text-align: center;
+    background-color: rgb(96, 216, 85);
+    margin: 2%;
+
+}
+
+.SelectdayAndTimeForm{
+    display: flex;
+    margin: 5%;
+    justify-content: center;
+    align-items: center;
+}
+
+.TimeForm{
+    width: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+}

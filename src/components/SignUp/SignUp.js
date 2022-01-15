@@ -7,9 +7,16 @@ import toastifyFile from "../React-toastify/index"
 
 import { Form,Button } from 'react-bootstrap';
 import "./SignUp.css"
+// ------------------------
+import {addUser, addToken} from "../../reducers/user/actions"
+import jwt_decode from "jwt-decode";
+import { useDispatch } from 'react-redux'
 
+// ------------------------
 
 function SignUp(){
+
+    const dispatch = useDispatch();
 
     const navigate = useNavigate()
 
@@ -105,33 +112,65 @@ function SignUp(){
             .post(`http://localhost:8080/users`,data)
             .then(response=>{
                 toastifyFile.successNotify(response.data.success)
-                setTimeout(() => {
-                    navigate('/sign-in', {state:{email:email}});
-                }, 2000);
+                
+                // --------------Another axios to login --------------------
+                const data2 = {
+                    email:email,
+                    password:password
+                }
+                axios
+                .post("http://localhost:8080/login", data2)
+                .then((res) => {
+                        const token = res.data.access_token
+                        let decodedHeader = jwt_decode(token);
+                        // console.log(decodedHeader);
+                        // add to redux & localstorage
+                        dispatch(addUser({"id":decodedHeader.userInfo.id ,"name":decodedHeader.userInfo.name,"role":decodedHeader.roles[0]}));
+                        dispatch(addToken(token));
+
+                        toastifyFile.successNotify("Seccessfuly Logedin")
+                            setTimeout(() => {
+                                if(decodedHeader.roles[0] ==="ADMIN")
+                                {
+                                    navigate("/dashboard");
+                                }
+                                else{
+                                    navigate("/appointment-reservation");
+                                }
+                            }, 2000);
+                    })
+                    .catch((err) => {
+                        toastifyFile.errorNotify("Something Went Wrong")
+                    });
+                // -------------------------------------
             })
             .catch(err=>{
-                console.log(err.response.data);
-                if(err.response.data.email !== null)
+                if(err.response === undefined)
                 {
-                    toastifyFile.errorNotify(err.response.data.email)
+                    toastifyFile.errorNotify("There is no response from server")
+                }else{
+                    if(err.response.data.email !== null)
+                    {
+                        toastifyFile.errorNotify(err.response.data.email)
+                    }
+                    if(err.response.data.phone !== null)
+                    {
+                        toastifyFile.errorNotify(err.response.data.phone)
+                    }
+                    if(err.response.data.error !== null)
+                    {
+                        toastifyFile.errorNotify(err.response.data.error)
+                    }
+                    else{
+                        toastifyFile.errorNotify("Not handling Error")
+                    }
                 }
-                if(err.response.data.phone !== null)
-                {
-                    toastifyFile.errorNotify(err.response.data.phone)
-                }
-                if(err.response.data.error !== null)
-                {
-                    toastifyFile.errorNotify(err.response.data.error)
-                }
-                else{
-                    toastifyFile.errorNotify("Not handling Error")
-                }
+                
             })
     }
 
     return(
         <>
-        <h1>SignUp</h1>
         <ToastContainer  position="top-center"
             autoClose={5000}
             hideProgressBar={false}
@@ -143,6 +182,7 @@ function SignUp(){
             pauseOnHover
         />
         <div className="SignUpForm">
+        <h1>SignUp</h1>
         <Form>
             <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Name</Form.Label>

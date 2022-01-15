@@ -42,6 +42,43 @@ export default function Dashboard()
         ],
     };
 
+    const data2 = {
+        labels: ['Services', 'Reservations'],
+        datasets: [
+        {
+            label: '# of Votes',
+            data: [services, reservations],
+            backgroundColor: [
+                'rgba(99, 160, 99,0.2)',
+                'rgba(146, 146, 146, 0.2)',
+            ],
+            borderColor: [
+                'rgba(99, 160, 99, 1)',
+                'rgba(146, 146, 146, 1)',
+            ],
+            borderWidth: 3,
+        },
+        ],
+    };
+
+    const data3 = {
+        labels: ['Services', 'Reservations'],
+        datasets: [
+        {
+            label: '# of Votes',
+            data: [users, messages],
+            backgroundColor: [
+                'rgba(255, 206, 86,0.2)',
+                'rgba(146, 146, 146, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 206, 86, 1)',
+                'rgba(146, 146, 146, 1)',
+            ],
+            borderWidth: 3,
+        },
+        ],
+    };
 
 
     useEffect(() => {
@@ -67,11 +104,20 @@ export default function Dashboard()
                 <div className="GridData">
                     <div>
                         <Pie data={data} />
+                        <h5>{users}Users - {admins}Admins</h5>
+                    </div>
+                    <div>
+                        <Pie data={data2} />
+                        <h5>{services}Services - {reservations}Reservations</h5>
+                    </div>
+                    <div>
+                        <Pie data={data3} />
+                        <h5>{users}Users - {messages}Messages</h5>
                     </div>
                     {/* <div className="Users">Users: {user}</div> */}
-                    <div className="services">services: {services}</div>
-                    <div className="reservations">reservations: {reservations}</div>
-                    <div className="messages">messages: {messages}</div>
+                    {/* <div className="services">services: {services}</div> */}
+                    {/* <div className="reservations">reservations: {reservations}</div> */}
+                    {/* <div className="messages">messages: {messages}</div> */}
                 </div>
         </>
     )

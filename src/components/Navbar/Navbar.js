@@ -72,7 +72,7 @@ export default function Navbar({isNotHomepage}){
                 {/* For USER */}
                 { state.user.role ==="USER" ? 
                     <>      
-                            <li><a onClick={()=>{navigate("/available-reservations")}} >Available Reservations</a></li> 
+                            <li><a onClick={()=>{navigate("/appointment-reservation")}} >Appointment Reservation</a></li> 
                             <li><a onClick={()=>{navigate("/my-reservations")}} >My Reservations</a></li>    
                     </>
                 :""}

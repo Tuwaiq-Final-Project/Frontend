@@ -135,7 +135,7 @@ function SignUp(){
                                     navigate("/dashboard");
                                 }
                                 else{
-                                    navigate("/available-reservations");
+                                    navigate("/appointment-reservation");
                                 }
                             }, 2000);
                     })

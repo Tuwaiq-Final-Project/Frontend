@@ -13,13 +13,15 @@ const userReducer = (state = initialState, { type, payload }) => {
       localStorage.setItem("user", JSON.stringify(payload));
       return {
         user: payload,
-        isLogedIn: true
+        isLogedIn: true,
+        token:state.token
       };
     case "ADD_TOKEN":
       localStorage.setItem("token", JSON.stringify(payload));
       return {
         user: state.user,
-        isLogedIn: true
+        isLogedIn: true,
+        token:payload
       };
     case "REMOVE_USER":
       localStorage.removeItem("user");

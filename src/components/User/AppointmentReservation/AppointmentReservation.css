@@ -3,6 +3,7 @@
     margin-right: 5%;
     margin-top: 2%;
     background-color: rgb(202, 223, 216);
+    border-radius: 5px;
 }
 
 .AppointmentReservationSelect > h5 {
@@ -15,15 +16,15 @@
     margin-top: 2%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: rgb(202, 223, 216);
-
 }
 
 .Card{
     text-align: center;
-    background-color: rgb(96, 216, 85);
+    background-color: rgb(202, 223, 216);
     margin: 2%;
-
+    padding: 2%;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
 }
 
 .SelectdayAndTimeForm{
@@ -31,10 +32,11 @@
     margin: 5%;
     justify-content: center;
     align-items: center;
+    
 }
 
 .TimeForm{
-    width: 100px;
+    width: 50%;
     margin-left: 5%;
     margin-right: 5%;
 }

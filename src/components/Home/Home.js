@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import './Home.css'
 import { Form,Button,FloatingLabel } from 'react-bootstrap';
@@ -13,13 +13,20 @@ import { BiSupport } from 'react-icons/bi';
 import { HiUsers, HiCursorClick } from 'react-icons/hi';
 import { MdLocationOn, MdEmail} from 'react-icons/md';
 import { BsFillTelephoneFill} from 'react-icons/bs';
+import { useNavigate } from "react-router-dom";
 
 
 function Home(){
 
+    const navigate = useNavigate();
+
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
+    
+    const [numberOfUsers,setNumberOfusers  ] = useState(0);
+    const [numberOfMessages, setNumberOfMessages] = useState(0);
 
 
     const handleChangeName = (e) => {
@@ -79,6 +86,16 @@ function Home(){
         }
     }
 
+
+    useEffect(()=>{
+        axios.get(`http://localhost:8080/dashboard/get-users-messages`)
+        .then((res)=>{
+            setNumberOfusers(res.data.users);
+            setNumberOfMessages(res.data.messages);
+        })
+        .catch((err)=>{console.log(err);})
+    },[])
+
     return(
         <>
         <ToastContainer  position="top-center"
@@ -94,7 +111,10 @@ function Home(){
         <div className="HeroSection">
             <Navbar/>
             <h1 className="HeroSectionH1Tag">Best Barber shop in the world!</h1>
-            <p className="ParagraveTag">Best Barber shop in the world! Best Barber shop in the world!Best Barber shop in the world!</p>
+            <div className="HeroSectionDivTag">
+            <button onClick={()=>{navigate("/sign-in")}} className="LoginButton">Log in</button>
+            <button onClick={()=>{navigate("/sign-up")}} className="SignupButton">Sign Up</button>
+            </div>
         </div>
         
         <svg className="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
@@ -116,21 +136,21 @@ function Home(){
             <div className="StatisticsBox">
                 <div className="StatisticsData">
                     <HiUsers size={40}/>
-                    <h1>+ 439</h1>
+                    <h1>+ {numberOfUsers}</h1>
                     <h5>Users</h5>
                 </div>
             </div>
             <div className="StatisticsBox">
                 <div className="StatisticsData">
                     <HiCursorClick size={40}/>
-                    <h1>+ 6534</h1>
+                    <h1>+ {numberOfUsers+numberOfMessages}</h1>
                     <h5>Visitors</h5>
                 </div>
             </div>
             <div className="StatisticsBox">
                 <div className="StatisticsData">
                     <BiSupport size={40}/>
-                    <h1>+ 20</h1>
+                    <h1>+ {numberOfMessages}</h1>
                     <h5>Supports</h5>
                 </div>
             </div>
@@ -182,7 +202,7 @@ function Home(){
                 <div className="email">
                     <i><MdEmail size={30}/></i>
                     <h4>Email:</h4>
-                    <p>support@test.com</p>
+                    <p>saadalwuhayb@gmail.com</p>
                 </div>
                 <div className="phone">
                     <i><BsFillTelephoneFill size={30}/></i>

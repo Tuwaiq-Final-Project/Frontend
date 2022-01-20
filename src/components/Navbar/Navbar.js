@@ -1,4 +1,4 @@
-import React, {useRef ,useEffect} from "react";
+import React, {useEffect} from "react";
 
 import { Dropdown } from 'react-bootstrap';
 
@@ -10,27 +10,6 @@ import {removeUser} from "../../reducers/user/actions"
 import "./Navbar.css"
 
 export default function Navbar({isNotHomepage}){
-
-    const listElement = useRef(null);
-
-    useEffect(() => {
-        
-
-        if(isNotHomepage != undefined && isNotHomepage == true)
-        {
-            listElement.current.classList.add("scroll");
-        }
-        // ------------------------
-        // window.onscroll = function() {
-        //     "use strict";
-        //     if (document.body.scrollTop >= 10 || document.documentElement.scrollTop >= 10) {
-        //     listElement.current.classList.add("scroll");
-        //     } else {
-        //     listElement.current.classList.remove("scroll");
-        //     }
-        // };
-    },[]);
-
 
     const state = useSelector((state) => {
         return {
@@ -44,7 +23,7 @@ export default function Navbar({isNotHomepage}){
 
 
     return(
-        <div className="Flex" ref={listElement}>
+        <div className="Flex">
         <div className="LogoIcon">   
             <picture>
                 <source media="(min-width: 650px)" srcSet="barberTimeIcon.png" width="170" height="100"/>
@@ -56,7 +35,7 @@ export default function Navbar({isNotHomepage}){
                 {/* For Visitor */}
                 { !state.isLogedIn ? 
                 <>
-                    <li><a onClick={()=>{navigate("/")}} >Home</a></li> 
+                    <li><a className="homeClick" onClick={()=>{navigate("/")}} >Home</a></li> 
                     { location.pathname =="/" &&  <li><a href="#ContactUs">Contact Us</a></li>}
                 </>:"" }
                 {/* For ADMIN */}
@@ -88,7 +67,6 @@ export default function Navbar({isNotHomepage}){
                 </Dropdown.Toggle>
             
                 <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
                 <Dropdown.Item onClick={()=>{dispatch(removeUser()); navigate("/");}}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>

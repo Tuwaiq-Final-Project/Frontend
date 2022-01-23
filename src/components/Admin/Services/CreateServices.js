@@ -50,7 +50,7 @@ export default function CreateServices()
             headers:{Authorization: `Bearer ${state.token}`}
         }
         axios
-        .post(`http://localhost:8080/services`,data,config)
+        .post(`https://deploy-barber-time-project.herokuapp.com/services`,data,config)
         .then((response) =>
         {
             navigate('/services');

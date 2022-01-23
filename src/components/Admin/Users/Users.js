@@ -10,7 +10,7 @@ export default function Users()
 
     useEffect(() => {
         axios
-        .get("http://localhost:8080/users")
+        .get("https://deploy-barber-time-project.herokuapp.com/users")
         .then((response) =>
         {
             setUsers(response.data)

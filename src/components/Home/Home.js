@@ -55,7 +55,7 @@ function Home(){
             }
 
             axios
-            .post(`http://localhost:8080/messages`,data)
+            .post(`https://deploy-barber-time-project.herokuapp.com/messages`,data)
             .then(response=>{
                 toastifyFile.successNotify("Successfully sent",5000)
                 document.getElementById("name").value=""
@@ -88,7 +88,7 @@ function Home(){
 
 
     useEffect(()=>{
-        axios.get(`http://localhost:8080/dashboard/get-users-messages`)
+        axios.get(`https://deploy-barber-time-project.herokuapp.com/dashboard/get-users-messages`)
         .then((res)=>{
             setNumberOfusers(res.data.users);
             setNumberOfMessages(res.data.messages);

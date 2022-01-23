@@ -109,7 +109,7 @@ function SignUp(){
                 role_id:1  // 1 = should be USER
             }
             axios
-            .post(`http://localhost:8080/users`,data)
+            .post(`https://deploy-barber-time-project.herokuapp.com/users`,data)
             .then(response=>{
                 toastifyFile.successNotify(response.data.success)
                 
@@ -119,7 +119,7 @@ function SignUp(){
                     password:password
                 }
                 axios
-                .post("http://localhost:8080/login", data2)
+                .post("https://deploy-barber-time-project.herokuapp.com/login", data2)
                 .then((res) => {
                         const token = res.data.access_token
                         let decodedHeader = jwt_decode(token);

@@ -21,7 +21,7 @@ export default function Reservations()
         let data = JSON.stringify({
             status: isApproved == true ? "Approved" :"Rejected",
         })
-        axios.post(`http://localhost:8080/reservations/change-status/${reservationId}`, data, {
+        axios.post(`https://deploy-barber-time-project.herokuapp.com/reservations/change-status/${reservationId}`, data, {
             headers: {'Content-Type': 'application/json',}
         }
         )
@@ -30,7 +30,7 @@ export default function Reservations()
                 headers:{Authorization: `Bearer ${state.token}`}
             }
             axios
-            .get("http://localhost:8080/reservations",config)
+            .get("https://deploy-barber-time-project.herokuapp.com/reservations",config)
             .then((response) =>
             {
                 setReservations(response.data)
@@ -47,7 +47,7 @@ export default function Reservations()
             headers:{Authorization: `Bearer ${state.token}`}
         }
         axios
-        .get("http://localhost:8080/reservations",config)
+        .get("https://deploy-barber-time-project.herokuapp.com/reservations",config)
         .then((response) =>
         {
             setReservations(response.data)

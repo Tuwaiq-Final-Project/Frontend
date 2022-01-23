@@ -83,7 +83,7 @@ export default function Dashboard()
 
     useEffect(() => {
         
-        axios.get('http://localhost:8080/dashboard/all')
+        axios.get('https://deploy-barber-time-project.herokuapp.com/dashboard/all')
         .then(
             function(res)
             {

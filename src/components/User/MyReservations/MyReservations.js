@@ -21,7 +21,7 @@ export default function MyReservations()
             headers : {Authorization : `Bearer ${state.token}`}
         }
         axios
-        .get(`http://localhost:8080/reservations/my-reservations/${state.userId}`,config)
+        .get(`https://deploy-barber-time-project.herokuapp.com/reservations/my-reservations/${state.userId}`,config)
         .then( (res)=>{
             console.log("!!!!!!!!!!");
             console.log(res);

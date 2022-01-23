@@ -33,7 +33,7 @@ export default function AppointmentReservation()
         }
 
         axios
-        .get(`http://localhost:8080/reservations/checkIfTherePendingReservations/${state.userId}`,config)
+        .get(`https://deploy-barber-time-project.herokuapp.com/reservations/checkIfTherePendingReservations/${state.userId}`,config)
         .then( (res)=>{
             if(res.data.message)
             {
@@ -42,7 +42,7 @@ export default function AppointmentReservation()
             else{
                 // Get All Services
                 axios
-                .get(`http://localhost:8080/services`,config)
+                .get(`https://deploy-barber-time-project.herokuapp.com/services`,config)
                 .then( (res)=>{
                     setServices(res.data);
                     setSelectedService(res.data[0].id);
@@ -51,7 +51,7 @@ export default function AppointmentReservation()
 
                 // Get All Available-days-times
                 axios
-                .get(`http://localhost:8080/reservations/available-days-times`,config)
+                .get(`https://deploy-barber-time-project.herokuapp.com/reservations/available-days-times`,config)
                 .then( (res)=>{
                     setAvailableDaysTimes(res.data)
                     // set initial values
@@ -85,7 +85,7 @@ export default function AppointmentReservation()
         service:{id:selectedService}
     }
     axios
-    .post(`http://localhost:8080/reservations`,AppointmentData,config)
+    .post(`https://deploy-barber-time-project.herokuapp.com/reservations`,AppointmentData,config)
     .then((res)=>{
         toastifyFile.successNotify("Request Has Been Sent")
         setTimeout(() => {

@@ -24,7 +24,7 @@ export default function Messages()
             headers:{Authorization: `Bearer ${state.token}`}
         }
         axios
-        .get("http://localhost:8080/messages",config)
+        .get("https://deploy-barber-time-project.herokuapp.com/messages",config)
         .then((response) =>
         {
             setMessages(response.data)

@@ -36,7 +36,7 @@ function SignIn(){
         };
         
         axios
-        .post("http://localhost:8080/login", data)
+        .post("https://deploy-barber-time-project.herokuapp.com/login", data)
         .then((res) => {
             const token = res.data.access_token
             let decodedHeader = jwt_decode(token);

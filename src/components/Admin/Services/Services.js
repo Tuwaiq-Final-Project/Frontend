@@ -25,7 +25,7 @@ export default function Services()
             headers:{Authorization: `Bearer ${state.token}`}
         }
         axios
-        .get("http://localhost:8080/services",config)
+        .get("https://deploy-barber-time-project.herokuapp.com/services",config)
         .then((response) =>
         {
             setServices(response.data)
